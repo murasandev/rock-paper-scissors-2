@@ -4,10 +4,6 @@ let computerChoice, userChoice;
 let computerScore = 0;
 let userScore = 0;
 
-// Generate random number from 1-3
-//Assign each value rock paper or scissor
-//Get input from user
-// increment winner score
 playRound();
 
 function calcRandomNumber(min, max){
@@ -50,15 +46,17 @@ function checkUserInput(){
 
 function compareChoice(){
     if(computerChoice == userChoice){
-        console.log(`Round tied! Computer played ${computerChoice}. You played ${userChoice}`);
+        console.log(`Round tied! Computer played ${computerChoice}. You played ${userChoice}.`);
     }
     else {
         if(computerChoice == 'rock') {
             switch (userChoice){
                 case 'paper':
+                    console.log(`Round Won!!! Computer played ${computerChoice}. You played ${userChoice}.`)
                     userScore++;
                     break;
                 case 'scissors':
+                    console.log(`Round Lost!!! Computer played ${computerChoice}. You played ${userChoice}.`)
                     computerScore++
                     break;
             }
@@ -66,9 +64,11 @@ function compareChoice(){
         else if(computerChoice == 'paper'){
             switch (userChoice){
                 case 'rock':
+                    console.log(`Round Lost!!! Computer played ${computerChoice}. You played ${userChoice}.`)
                     computerScore++;
                     break;
                 case 'scissors':
+                    console.log(`Round Won!!! Computer played ${computerChoice}. You played ${userChoice}.`)
                     userScore++;
                     break;
             }
@@ -76,9 +76,11 @@ function compareChoice(){
         else if (computerChoice == 'scissors'){
             switch (userChoice){
                 case 'rock':
+                    console.log(`Round Won!!! Computer played ${computerChoice}. You played ${userChoice}.`)
                     userScore++;
                     break;
                 case 'paper':
+                    console.log(`Round Lost!!! Computer played ${computerChoice}. You played ${userChoice}.`)
                     computerScore++;
                     break;
             }
@@ -93,6 +95,9 @@ function getScore(){
 function playRound(){
     while(userInput != 'rock' && userInput != 'paper' && userInput != 'scissors'){
         getUserInput();
+        if(userInput != 'rock' && userInput != 'paper' && userInput != 'scissors'){
+            console.log("Invalid Response! Try Again!");
+        }
     }
     checkUserInput();
     calcRandomNumber(0, 3);
