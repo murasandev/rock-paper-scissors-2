@@ -1,5 +1,7 @@
-let computerNumber, userNumber;
+let computerNumber;
 let userInput;
+let computerChoice, userChoice;
+let computerScore, userScore;
 
 // Generate random number from 1-3
 //Assign each value rock paper or scissor
@@ -17,13 +19,13 @@ function checkComputerChoice(){
 
     switch(computerNumber){
         case 0:
-            console.log(`Rock: ${computerNumber}`);
+            computerChoice = 'rock';
             break;
         case 1:
-            console.log(`Paper ${computerNumber}`);
+            computerChoice = 'paper';
             break;
         case 2:
-            console.log(`Scissors ${computerNumber}`);
+            computerChoice = 'scissors'
             break;
     }
 }
@@ -37,21 +39,56 @@ function getUserInput(){
 function checkUserInput(){
     switch (userInput){
         case 'rock':
-            userNumber = 0;
-            console.log(`User Selected ${userNumber}`);
+            userChoice = 'rock';
             break;
         case 'paper':
-            userNumber = 1;
-            console.log(`User Selected ${userNumber}`);
+            userChoice = 'paper'
             break;
         case 'scissors':
-            userNumber = 2;
-            console.log(`User Selected ${userNumber}`);
+            userChoice = 'scissors';
             break;
         default:
             console.log('Input not valid, try again');
             getUserInput();
             break;
+    }
+}
+
+function compareChoice(){
+    if(computerChoice == userChoice){
+        console.log(`Round tied! Computer played ${computerChoice}. You played ${userChoice}`);
+    }
+    else {
+        if(computerChoice == 'rock') {
+            switch (userChoice){
+                case 'paper':
+                    userScore++;
+                    break;
+                case 'scissors':
+                    computerScore++
+                    break;
+            }
+        }
+        else if(computerChoice == 'paper'){
+            switch (userChoice){
+                case 'rock':
+                    computerScore++;
+                    break;
+                case 'scissors':
+                    userScore++;
+                    break;
+            }
+        }
+        else if (computerChoice == 'scissors'){
+            switch (userChoice){
+                case 'rock':
+                    user++;
+                    break;
+                case 'paper':
+                    computerScore++;
+                    break;
+            }
+        }
     }
 }
 
