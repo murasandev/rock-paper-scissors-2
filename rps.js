@@ -15,8 +15,6 @@ function calcRandomNumber(min, max){
 
 //calls calcRandomNumber and checks value
 function checkComputerChoice(){
-    calcRandomNumber(0, 3);
-
     switch(computerNumber){
         case 0:
             computerChoice = 'rock';
@@ -33,7 +31,6 @@ function checkComputerChoice(){
 //gets user Input and assigns value in checkUserInput function
 function getUserInput(){
     userInput = prompt("Rock, Paper, or Scissors?","3, 2, 1! Shoot!").toLowerCase();
-    checkUserInput();
 }
 
 function checkUserInput(){
@@ -82,7 +79,7 @@ function compareChoice(){
         else if (computerChoice == 'scissors'){
             switch (userChoice){
                 case 'rock':
-                    user++;
+                    userScore++;
                     break;
                 case 'paper':
                     computerScore++;
@@ -92,7 +89,15 @@ function compareChoice(){
     }
 }
 
+function getScore(){
+    console.log(`Computer: ${computerScore} | User ${userScore}`);
+}
+
 function playRound(){
     getUserInput();
+    checkUserInput();
+    calcRandomNumber();
     checkComputerChoice();
+    compareChoice();
+    getScore();
 }
