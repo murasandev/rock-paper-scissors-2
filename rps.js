@@ -45,10 +45,6 @@ function checkUserInput(){
         case 'scissors':
             userChoice = 'scissors';
             break;
-        default:
-            console.log('Input not valid, try again');
-            getUserInput();
-            break;
     }
 }
 
@@ -95,7 +91,9 @@ function getScore(){
 }
 
 function playRound(){
-    getUserInput();
+    while(userInput != 'rock' && userInput != 'paper' && userInput != 'scissors'){
+        getUserInput();
+    }
     checkUserInput();
     calcRandomNumber(0, 3);
     checkComputerChoice();
