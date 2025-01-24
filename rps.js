@@ -56,6 +56,6 @@ function checkUserInput(){
 }
 
 function playRound(){
-    checkComputerChoice();
     getUserInput();
+    checkComputerChoice();
 }
