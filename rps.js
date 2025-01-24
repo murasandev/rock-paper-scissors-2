@@ -5,13 +5,13 @@ let userInput;
 //Assign each value rock paper or scissor
 //Get input from user
 // increment winner score
-getUserInput();
-checkComputerChoice();
+playRound();
 
 function calcRandomNumber(min, max){
     computerNumber = Math.floor(Math.random() * (max - min) + min);
 }
 
+//calls calcRandomNumber and checks value
 function checkComputerChoice(){
     calcRandomNumber(0, 3);
 
@@ -28,8 +28,9 @@ function checkComputerChoice(){
     }
 }
 
+//gets user Input and assigns value in checkUserInput function
 function getUserInput(){
-    userInput = prompt("Rock, Paper, or Scissors?","3, 2, 1! Shoot!");
+    userInput = prompt("Rock, Paper, or Scissors?","3, 2, 1! Shoot!").toLowerCase();
     checkUserInput();
 }
 
@@ -52,4 +53,9 @@ function checkUserInput(){
             getUserInput();
             break;
     }
+}
+
+function playRound(){
+    checkComputerChoice();
+    getUserInput();
 }
