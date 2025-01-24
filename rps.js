@@ -1,4 +1,4 @@
-let computerNumber;
+let computerNumber, userNumber;
 let userInput;
 
 // Generate random number from 1-3
@@ -30,4 +30,26 @@ function checkComputerChoice(){
 
 function getUserInput(){
     userInput = prompt("Rock, Paper, or Scissors?","3, 2, 1! Shoot!");
+    checkUserInput();
+}
+
+function checkUserInput(){
+    switch (userInput){
+        case 'rock':
+            userNumber = 0;
+            console.log(`User Selected ${userNumber}`);
+            break;
+        case 'paper':
+            userNumber = 1;
+            console.log(`User Selected ${userNumber}`);
+            break;
+        case 'scissors':
+            userNumber = 2;
+            console.log(`User Selected ${userNumber}`);
+            break;
+        default:
+            console.log('Input not valid, try again');
+            getUserInput();
+            break;
+    }
 }
