@@ -3,14 +3,14 @@ let userInput;
 let computerChoice, userChoice;
 let computerScore = 0;
 let userScore = 0;
+let totalRounds = 5;
 
-playRound();
+playGame();
 
 function calcRandomNumber(min, max){
     computerNumber = Math.floor(Math.random() * (max - min) + min);
 }
 
-//calls calcRandomNumber and checks value
 function checkComputerChoice(){
     switch(computerNumber){
         case 0:
@@ -25,7 +25,6 @@ function checkComputerChoice(){
     }
 }
 
-//gets user Input and assigns value in checkUserInput function
 function getUserInput(){
     userInput = prompt("Rock, Paper, or Scissors?","3, 2, 1! Shoot!").toLowerCase();
 }
@@ -104,4 +103,16 @@ function playRound(){
     checkComputerChoice();
     compareChoice();
     getScore();
+    resetUserInput();
+}
+
+function playGame(){
+    for(let i=0; i < totalRounds; i++){
+        console.log(`Round ${i}! Make your pick!`);
+        playRound();
+    }
+}
+
+function resetUserInput(){
+    userInput = '';
 }
