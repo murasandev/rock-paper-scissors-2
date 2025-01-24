@@ -108,7 +108,7 @@ function playRound(){
 
 function playGame(){
     for(let i=0; i < totalRounds; i++){
-        console.log(`Round ${i}! Make your pick!`);
+        console.log(`Round ${i + 1}! Make your pick!`);
         playRound();
     }
 }
