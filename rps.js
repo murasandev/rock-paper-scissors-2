@@ -1,7 +1,8 @@
 let computerNumber;
 let userInput;
 let computerChoice, userChoice;
-let computerScore, userScore;
+let computerScore = 0;
+let userScore = 0;
 
 // Generate random number from 1-3
 //Assign each value rock paper or scissor
@@ -96,7 +97,7 @@ function getScore(){
 function playRound(){
     getUserInput();
     checkUserInput();
-    calcRandomNumber();
+    calcRandomNumber(0, 3);
     checkComputerChoice();
     compareChoice();
     getScore();
