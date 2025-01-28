@@ -1,3 +1,9 @@
+const computerOutput = document.querySelector('.computerOutput');
+const computerTitle = document.createElement('h3');
+
+const userOutput = document.querySelector('.userOutput');
+const userTitle = document.createElement('h3');
+
 let computerNumber;
 let userInput;
 let computerChoice, userChoice;
@@ -8,27 +14,36 @@ let totalRounds = 5;
 const rockBtn = document.querySelector(".rockBtn");
 rockBtn.addEventListener('click', function(){
     userInput = 'rock';
-    alert(userInput);
+    
+    userTitle.textContent = `You played: ${userInput}`
+    userOutput.appendChild(userTitle);
+
     playRound();
 });
 
 const paperBtn = document.querySelector('.paperBtn');
 paperBtn.addEventListener('click', function(){
     userInput = 'paper';
-    alert(userInput);
+    
+    userTitle.textContent = `You played: ${userInput}`
+    userOutput.appendChild(userTitle);
+
     playRound();
 });
 
 const scissorsBtn = document.querySelector('.scissorsBtn');
 scissorsBtn.addEventListener('click', function(){
     userInput = 'scissors';
-    alert(userInput);
+    
+    userTitle.textContent = `You played: ${userInput}`
+    userOutput.appendChild(userTitle);
+
     playRound();
 });
 
+
+
 // playGame();
-//when user makes selection
-//calculate computer choice
 //display user choice and computer choice
 
 function calcRandomNumber(min, max){
@@ -47,11 +62,9 @@ function checkComputerChoice(){
             computerChoice = 'scissors'
             break;
     }
+    computerTitle.textContent = `Your opponent played: ${computerChoice}`;
+    computerOutput.appendChild(computerTitle);
 }
-
-// function getUserInput(){
-//     userInput = prompt("Rock, Paper, or Scissors?","3, 2, 1! Shoot!").toLowerCase();
-// }
 
 function checkUserInput(){
     switch (userInput){
