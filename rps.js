@@ -7,15 +7,26 @@ let totalRounds = 5;
 
 const rockBtn = document.querySelector(".rockBtn");
 rockBtn.addEventListener('click', function(){
-    alert('you played rock');
+    userInput = 'rock';
+    alert(userInput);
 });
 
 const paperBtn = document.querySelector('.paperBtn');
 paperBtn.addEventListener('click', function(){
-    alert('you played paper');
+    userInput = 'paper';
+    alert(userInput);
+});
+
+const scissorsBtn = document.querySelector('.scissorsBtn');
+scissorsBtn.addEventListener('click', function(){
+    userInput = 'scissors';
+    alert(userInput);
 });
 
 // playGame();
+//when user makes selection
+//calculate computer choice
+//display user choice and computer choice
 
 function calcRandomNumber(min, max){
     computerNumber = Math.floor(Math.random() * (max - min) + min);
@@ -35,9 +46,9 @@ function checkComputerChoice(){
     }
 }
 
-function getUserInput(){
-    userInput = prompt("Rock, Paper, or Scissors?","3, 2, 1! Shoot!").toLowerCase();
-}
+// function getUserInput(){
+//     userInput = prompt("Rock, Paper, or Scissors?","3, 2, 1! Shoot!").toLowerCase();
+// }
 
 function checkUserInput(){
     switch (userInput){
@@ -102,12 +113,12 @@ function getScore(){
 }
 
 function playRound(){
-    while(userInput != 'rock' && userInput != 'paper' && userInput != 'scissors'){
-        getUserInput();
-        if(userInput != 'rock' && userInput != 'paper' && userInput != 'scissors'){
-            console.log("Invalid Response! Try Again!");
-        }
-    }
+    // while(userInput != 'rock' && userInput != 'paper' && userInput != 'scissors'){
+    //     // getUserInput();
+    //     if(userInput != 'rock' && userInput != 'paper' && userInput != 'scissors'){
+    //         console.log("Invalid Response! Try Again!");
+    //     }
+    // }
     checkUserInput();
     calcRandomNumber(0, 3);
     checkComputerChoice();
