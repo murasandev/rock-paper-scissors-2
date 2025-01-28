@@ -9,18 +9,21 @@ const rockBtn = document.querySelector(".rockBtn");
 rockBtn.addEventListener('click', function(){
     userInput = 'rock';
     alert(userInput);
+    playRound();
 });
 
 const paperBtn = document.querySelector('.paperBtn');
 paperBtn.addEventListener('click', function(){
     userInput = 'paper';
     alert(userInput);
+    playRound();
 });
 
 const scissorsBtn = document.querySelector('.scissorsBtn');
 scissorsBtn.addEventListener('click', function(){
     userInput = 'scissors';
     alert(userInput);
+    playRound();
 });
 
 // playGame();
