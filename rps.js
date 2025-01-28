@@ -5,7 +5,17 @@ let computerScore = 0;
 let userScore = 0;
 let totalRounds = 5;
 
-playGame();
+const rockBtn = document.querySelector(".rockBtn");
+rockBtn.addEventListener('click', function(){
+    alert('you played rock');
+});
+
+const paperBtn = document.querySelector('.paperBtn');
+paperBtn.addEventListener('click', function(){
+    alert('you played paper');
+});
+
+// playGame();
 
 function calcRandomNumber(min, max){
     computerNumber = Math.floor(Math.random() * (max - min) + min);
