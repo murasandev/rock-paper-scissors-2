@@ -4,6 +4,9 @@ const computerTitle = document.createElement('h3');
 const userOutput = document.querySelector('.userOutput');
 const userTitle = document.createElement('h3');
 
+const scoreContainer = document.querySelector('.scoreContainer');
+const scoreText = document.createElement('h2');
+
 let computerNumber;
 let userInput;
 let computerChoice, userChoice;
@@ -18,7 +21,7 @@ rockBtn.addEventListener('click', function(){
     userTitle.textContent = `You played: ${userInput}`
     userOutput.appendChild(userTitle);
 
-    playRound();
+    playGame();
 });
 
 const paperBtn = document.querySelector('.paperBtn');
@@ -28,7 +31,7 @@ paperBtn.addEventListener('click', function(){
     userTitle.textContent = `You played: ${userInput}`
     userOutput.appendChild(userTitle);
 
-    playRound();
+    playGame();
 });
 
 const scissorsBtn = document.querySelector('.scissorsBtn');
@@ -38,13 +41,8 @@ scissorsBtn.addEventListener('click', function(){
     userTitle.textContent = `You played: ${userInput}`
     userOutput.appendChild(userTitle);
 
-    playRound();
+    playGame();
 });
-
-
-
-// playGame();
-//display user choice and computer choice
 
 function calcRandomNumber(min, max){
     computerNumber = Math.floor(Math.random() * (max - min) + min);
@@ -126,15 +124,11 @@ function compareChoice(){
 
 function getScore(){
     console.log(`Computer: ${computerScore} | User ${userScore}`);
+    scoreText.textContent = `Computer: ${computerScore} | User: ${userScore}`;
+    scoreContainer.appendChild(scoreText);
 }
 
 function playRound(){
-    // while(userInput != 'rock' && userInput != 'paper' && userInput != 'scissors'){
-    //     // getUserInput();
-    //     if(userInput != 'rock' && userInput != 'paper' && userInput != 'scissors'){
-    //         console.log("Invalid Response! Try Again!");
-    //     }
-    // }
     checkUserInput();
     calcRandomNumber(0, 3);
     checkComputerChoice();
@@ -144,9 +138,22 @@ function playRound(){
 }
 
 function playGame(){
-    for(let i=0; i < totalRounds; i++){
-        console.log(`Round ${i + 1}! Make your pick!`);
+    if(computerScore < 5 && userScore < 5){
         playRound();
+    }
+    else{
+        switch (computerScore){
+            case 5:
+                // computer wins
+                scoreText.textContent = `Computer Wins!!! ${computerScore} - ${userScore}`;
+                scoreContainer.appendChild(scoreText);
+                break;
+            default:
+                //user wins
+                scoreText.textContent = `You Win!!! ${userScore} - ${computerScore}`;
+                scoreContainer.appendChild(scoreText);
+                break;
+        }
     }
 }
 
